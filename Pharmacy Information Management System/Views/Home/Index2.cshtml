@@ -9,15 +9,12 @@
         <title>MedicentreV3 | Inventory</title>
         <link rel="shortcut icon" type=image/x-icon href="/favicon.ico?v=uIheJj4_jG2_IegLvBAhj6Rsmi0vVavzZQehKEJByxQ" defer async>
         <link rel=preload href="~/css/site.min.css?v=j6ExleZLhlkHO7BJI4dfYesLDSss3AwV6PHMFVPXQiw" as=style>
-        <link rel=preload href="~/lib/jquery/dist/jquery.min.js?v=CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo" as=script>
-        <link rel=preload href="~/js/signalr/signalr.min.js?v=aNSbXaEA6wcVsUTxsuF1mI-mKauMNEMkhXShRZaQMnE" as=script>
-        <link rel=preload href="~/js/main.min.js?v=FGdNIVyQp87KxSZVvrK9dunmd0HJo5hCDmHZAX_FxeE" as=script>
+        <link rel=preload href="/lib/jquery/dist/jquery.min.js?v=CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo" as=script>
+        <link rel=preload href="/js/signalr/signalr.min.js?v=aNSbXaEA6wcVsUTxsuF1mI-mKauMNEMkhXShRZaQMnE" as=script>
+        <link rel=preload href="/js/main.min.js?v=FGdNIVyQp87KxSZVvrK9dunmd0HJo5hCDmHZAX_FxeE" as=script>
         <link rel=preload href="~/css/assets.min.css?v=pC99z4nR8ke9vhJ9o1QGU1oJz2MSCaHTJvXg3_QP3Sc" as=style>
-        <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">  
-
-
- 
-        <style>
+        <link rel=preload href="/lib/font-awesome/web-fonts-with-css/css/all.min.css?v=h8JWykigQCDFpCwkC3jVrrKZ58vuXBfWlig_lGnEUqU" as=style>
+       <style>
             .cs-loader {
                 position: absolute;
                 top: 12px;
@@ -27,14 +24,6 @@
                 z-index: -9999
             }
 
-            /*At-font-face {
-                font-family: 'Poppins';
-                font-style: normal;
-                font-weight: normal;
-                font-display: swap;
-                src: url('../fonts/poppins/poppins-v5-latin-regular.eot');
-                src: local('Poppins Regular'),local('Poppins-Regular'),url('/fonts/poppins/poppins-v5-latin-regular.eot?#iefix') format('embedded-opentype'),url('/fonts/poppins/poppins-v5-latin-regular.woff2') format('woff2'),url('/fonts/poppins/poppins-v5-latin-regular.woff') format('woff'),url('/fonts/poppins/poppins-v5-latin-regular.ttf') format('truetype'),url('/fonts/poppins/poppins-v5-latin-regular.#Poppins') format('svg')
-            }*/
 
             .cs-loader-inner {
                 transform: translateY(-50%);
@@ -52,49 +41,9 @@
                 display: inline-block
             }
 
-          /*  At-keyframes lol {
-                0% {
-                    opacity: 0;
-                    transform: translateX(-300px)
-                }
+          
 
-                33% {
-                    opacity: 1;
-                    transform: translateX(0px)
-                }
-
-                66% {
-                    opacity: 1;
-                    transform: translateX(0px)
-                }
-
-                100% {
-                    opacity: 0;
-                    transform: translateX(300px)
-                }
-            }*/
-
-          /*  At--webkit-keyframes lol {
-                0% {
-                    opacity: 0;
-                    -webkit-transform: translateX(-300px)
-                }
-
-                33% {
-                    opacity: 1;
-                    -webkit-transform: translateX(0px)
-                }
-
-                66% {
-                    opacity: 1;
-                    -webkit-transform: translateX(0px)
-                }
-
-                100% {
-                    opacity: 0;
-                    -webkit-transform: translateX(300px)
-                }
-            }*/
+          
 
             .cs-loader-inner label:nth-child(6) {
                 -webkit-animation: lol 3s infinite ease-in-out;
@@ -134,34 +83,13 @@
                 animation-duration: 1s
             }
 
-           /* AT--webkit-keyframes animatebottom {
-                from {
-                    bottom: -100px;
-                    opacity: 0
-                }
 
-                to {
-                    bottom: 0;
-                    opacity: 1
-                }
-            }*/
-
-/*            At-keyframes animatebottom {
-                from {
-                    bottom: -100px;
-                    opacity: 0
-                }
-
-                to {
-                    bottom: 0;
-                    opacity: 1
-                }
-            }*/
 
             #divBody {
                 display: none
             }
         </style>
+    </head>
         <script>
             var UserRoomID = 0;
             var UserRoomStatus = 0;
@@ -195,7 +123,6 @@
         </script>
         <meta name=theme-color content=#2a2e2e>
         <link rel=manifest href=/manifest.webmanifest>
-        </head>
         <body id=body>
             <div id=wrapper>
                 <header>
@@ -472,18 +399,6 @@
                                             </a>
                                     </ul>
                                 <li>
-                                    <a href=# data-toggle=collapse data-target=#submenu-981>
-                                        <i class="fas fa-abacus"></i>
-                                        Under Five <i class="fa fa-fw fa-angle-down pull-right"></i>
-                                    </a>
-                                    <ul id=submenu-981 class="collapse sidebarcollapse">
-                                        <li>
-                                            <a href=/GenericModules/Panel/29>
-                                                <i class="fas fa-acorn"></i>
-                                                Under five 
-                                            </a>
-                                    </ul>
-                                <li>
                                     <a href=# data-toggle=collapse data-target=#submenu-980>
                                         <i class="fas fa-ambulance"></i>
                                         Accidents and Emergency <i class="fa fa-fw fa-angle-down pull-right"></i>
@@ -493,6 +408,18 @@
                                             <a href=/GenericModules/Panel/30>
                                                 <i class="fas fa-capsules"></i>
                                                 Outpatients Faculty
+                                            </a>
+                                    </ul>
+                                <li>
+                                    <a href=# data-toggle=collapse data-target=#submenu-981>
+                                        <i class="fas fa-abacus"></i>
+                                        Under Five <i class="fa fa-fw fa-angle-down pull-right"></i>
+                                    </a>
+                                    <ul id=submenu-981 class="collapse sidebarcollapse">
+                                        <li>
+                                            <a href=/GenericModules/Panel/29>
+                                                <i class="fas fa-acorn"></i>
+                                                Under five 
                                             </a>
                                     </ul>
                                 <li>
@@ -1020,7 +947,7 @@
                                                             <span class="glyphicon glyphicon-barcode"></span>
                                                         </button>
                                                         <button class="btn btn-default btn-sm ladda-button" id=btnsearchitem data-style=expand-right data-size=s>Search</button>
-                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                                     </form>
                                                 </div>
                                             </div>
@@ -1183,7 +1110,7 @@
                                                             </button>
                                                         </div>
                                                     </div>
-                                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                                 </form>
                                                 <div class=col-sm-2>
                                                     <div class="row text-center">
@@ -1248,16 +1175,16 @@
                                                                 <small>Filter: </small>
                                                             </label>
                                                             <select class="form-control input-sm" id=flag>
-                                                                <option value=0>All Active Products</option>
-                                                                <option value=1>All Inactive Products</option>
-                                                                <option value=2>Reserved Products</option>
-                                                                <option value=3>Products Out of Stock</option>
-                                                                <option value=4>Expired Products</option>
-                                                                <option value=5>Products Below Reorder Level</option>
+                                                        @*        <option value=0>All Active Products
+                                                                <option value=1>All Inactive Products
+                                                                <option value=2>Reserved Products
+                                                                <option value=3>Products Out of Stock
+                                                                <option value=4>Expired Products
+                                                                <option value=5>Products Below Reorder Level*@
                                                             </select>
                                                         </div>
                                                         <button id=btnfilterproducts class="btn btn-info btn-xs ladda-button" data-style=expand-right data-size=s>View</button>
-                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                                     </form>
                                                 </div>
                                             </div>
@@ -1323,7 +1250,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                                     </form>
                                                 </div>
                                                 <div class=panel-heading>
@@ -1386,11 +1313,11 @@
                                                                     </label>
                                                                     <select class="form-control input-sm" required data-val=true data-val-required="The ItemClassType field is required." id=ItemClass_ItemClassType name=ItemClass.ItemClassType>
                                                                         <option></option>
-                                                                        <option value=1>Drug Class</option>
-                                                                        <option value=2>Examination Class</option>
-                                                                        <option value=3>Test Class</option>
-                                                                        <option value=4>Procedure Class</option>
-                                                                        <option value=5>Consumable Class</option>
+                                                                     @*   <option value=1>Drug Class
+                                                                        <option value=2>Examination Class
+                                                                        <option value=3>Test Class
+                                                                        <option value=4>Procedure Class
+                                                                        <option value=5>Consumable Class*@
                                                                     </select>
                                                                 </div>
                                                                 <div id=updateitemclass hidden>
@@ -1406,7 +1333,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                                     </form>
                                                 </div>
                                                 <div class=panel-heading>
@@ -1460,7 +1387,7 @@
                                                         <button title="Upload File" id=btnImportCsv class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
                                                             <span class="fas fa-upload"></span>
                                                         </button>
-                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                                     </form>
                                                 </div>
                                             </div>
@@ -1474,8 +1401,32 @@
                                     </div>
                                 </div>
                             </div>
-                  
-
+                            <div class="modal fade select-stoloc-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                                <div class="modal-dialog modal-sm" role=document>
+                                    <div class=modal-content>
+                                        <div class=modal-header>
+                                            <h4 class=modal-title id=myModalLabel>
+                                                <strong>
+                                                    <small>
+                                                        <b>Select Your Storage Location First</b>
+                                                    </small>
+                                                </strong>
+                                            </h4>
+                                        </div>
+                                        <div class=modal-body>
+                                            <div class=row>
+                                                <div class=col-md-12>
+                                                    <div class=form-group>
+                                                        <select class="form-control input-sm" required data-val=true data-val-required="The StorageLocationID field is required." id=ItemStorageLocation_StorageLocationID name=ItemStorageLocation.StorageLocationID>
+                                                            <option></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="modal fade quagga-modal" aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
                                 <div class=modal-dialog role=document>
                                     <div class=modal-content>
@@ -1562,9 +1513,9 @@
                                                                 <small>Status</small>
                                                             </label>
                                                             <select id=ReserveStatus class="form-control input-sm">
-                                                                <option value=1>Paid/Invoiced</option>
-                                                                <option value=0>Pending payment</option>
-                                                                <option value=-1>All</option>
+                                                          @*      <option value=1>Paid/Invoiced
+                                                                <option value=0>Pending payment
+                                                                <option value=-1>All*@
                                                             </select>
                                                         </div>
                                                     </form>
@@ -1651,8 +1602,8 @@
                                                                 <small>Create for</small>
                                                             </label>
                                                             <select class="form-control input-sm" id=CreateOpeningStockFor required>
-                                                                <option value=1>All Products</option>
-                                                                <option value=2>Selected Category(s)</option>
+                                                           @*     <option value=1>All Products
+                                                                <option value=2>Selected Category(s)*@
                                                             </select>
                                                         </div>
                                                         <div id=divOSCategory hidden>
@@ -1666,7 +1617,7 @@
                                                             </div>
                                                         </div>
                                                         <button class="btn btn-primary btn-xs pull-right ladda-button" id=btnCreateOpeningStockForm data-style=expand-right data-size=s>Create Opening Stock</button>
-                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                                     </form>
                                                 </div>
                                             </div>
@@ -1728,7 +1679,7 @@
                                         <button id=addTown class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -1764,7 +1715,7 @@
                                         <button id=addOccupation class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -1808,7 +1759,7 @@
                                         <button id=addNationality class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -1849,17 +1800,17 @@
                                             </label>
                                             <select class="form-control input-sm" id=AccountType required>
                                                 <option></option>
-                                                <option value=1>Owner's Equity</option>
-                                                <option value=2>Liability</option>
-                                                <option value=3>Revenue</option>
-                                                <option value=4>Asset</option>
-                                            <option value=5>Expenses</option>
+                                           @*     <option value=1>Owner's Equity
+                                                <option value=2>Liability
+                                                <option value=3>Revenue
+                                                <option value=4>Asset
+                                                <option value=5>Expenses*@
                                             </select>
                                         </div>
                                         <button id=addAccountClass class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -1901,14 +1852,14 @@
                                                 </strong>
                                             </label>
                                             <select class="form-control input-sm" id=RoomUserStatus required disabled>
-                                                <option value=1>Available</option>
-                                                <option value=2>Busy</option>
-                                                <option value=3>Stepped Out</option>
+                                          @*      <option value=1>Available
+                                                <option value=2>Busy
+                                                <option value=3>Stepped Out*@
                                             </select>
                                         </div>
                                         <button id=btnSignInToRoom class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s></button>
                                     </div>
-                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                 </form>
                             </div>
                         </div>
@@ -1970,7 +1921,7 @@
                                             <input class="form-control input-sm" autocomplete=off id=EnterAccessCode type=password required>
                                         </div>
                                         <button id=btnenteraccesscode class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>Authenticate</button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -2024,7 +1975,7 @@
                                         </div>
                                         <button id=btnFeedback class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>Submit</button>
                                     </div>
-                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                 </form>
                             </div>
                         </div>
@@ -2046,7 +1997,7 @@
                                                 </button>
                                             </span>
                                         </div>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -2080,7 +2031,7 @@
                                             <select class="form-control input-sm" id=SwitchBranchID style=width:100% required></select>
                                         </div>
                                         <button class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s id=btnSwitchBranch>Switch</button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -2134,7 +2085,7 @@
                                             <input class="form-control input-sm" autocomplete=off id=EnterPortalAccessCode type=password required>
                                         </div>
                                         <button id=btnenterportalaccesscode class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>Authenticate</button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -2187,7 +2138,7 @@
                                         </div>
                                         <button id=btnShareEmailReport class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>Send</button>
                                     </div>
-                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                 </form>
                             </div>
                         </div>
@@ -2243,7 +2194,7 @@
                                             <input class="form-control input-sm" id=SupportingDocumentFile type=file accept=* required>
                                         </div>
                                         <button class="btn btn-info btn-xs ladda-button" id=btnUploadSupportingDocument data-style=expand-right data-size=s>Upload</button>
-                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVN-lmsFC585KjFKuAoKXgoh3ngNht5BGohhJm3-OT94jZ8dB2bGyxM6EEAmikPnFQECsREo3RSD1gvYUIO5F6NNQsWuetGNYovwrWCbAXpRp2wL6XE-nYlsXmtwt_98VoarmOHRagz8Z7PQvKyHN-qKyz4rIC7HqqAgtOLQ-CyyQ>
                                     </form>
                                 </div>
                             </div>
@@ -2305,7 +2256,7 @@
             </div>
             <div id=toast></div>
             <div class=minmaxCon id=taskbar style=display:none></div>
-            <script src="~/lib/jquery/dist/jquery.min.js?v=CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo"></script>
+            <script src="/lib/jquery/dist/jquery.min.js?v=CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo"></script>
             <script>
                 $(document).ready(function() {
                     $("#btnSignInToRoom").text('Sign Out');
@@ -2321,17 +2272,17 @@
                 }
                 ;
             </script>
-            <script src="~/js/signalr/signalr.min.js?v=aNSbXaEA6wcVsUTxsuF1mI-mKauMNEMkhXShRZaQMnE" defer></script>
-            <script src="~/js/main.min.js?v=FGdNIVyQp87KxSZVvrK9dunmd0HJo5hCDmHZAX_FxeE" defer></script>
+            <script src="/js/signalr/signalr.min.js?v=aNSbXaEA6wcVsUTxsuF1mI-mKauMNEMkhXShRZaQMnE" defer></script>
+            <script src="/js/main.min.js?v=FGdNIVyQp87KxSZVvrK9dunmd0HJo5hCDmHZAX_FxeE" defer></script>
             <script>
                 const GuideLink = 'Inventory';
             </script>
             <script>
                 EnterSubmitsFormsOnThisPage = true;
             </script>
-            <script src="~/js/quagga/quagga.min.js?v=JDVyLQRqvRSTL_6WaPud93JXpfEdW11zwjqhoNgkGXc" defer></script>
-            <script src="~/js/bacodescanner.js?v=PvSeFZtOSKE3EkUpoOEz49wl2jH-BwFaW76RYtqNnbY" defer></script>
-            <script src="~/js/inventory/inventory.min.js?v=0-WIF2KD19xgySOGzePhFkwCdeO5lAsPPOmxNVDMvk4" defer></script>
+            <script src="/js/quagga/quagga.min.js?v=JDVyLQRqvRSTL_6WaPud93JXpfEdW11zwjqhoNgkGXc" defer></script>
+            <script src="/js/bacodescanner.js?v=PvSeFZtOSKE3EkUpoOEz49wl2jH-BwFaW76RYtqNnbY" defer></script>
+            <script src="/js/inventory/inventory.min.js?v=0-WIF2KD19xgySOGzePhFkwCdeO5lAsPPOmxNVDMvk4" defer></script>
             <script>
                 $(function() {
                     $.contextMenu({
@@ -2441,9 +2392,9 @@
             </script>
             <div style=size:auto;margin:0 id=silent-print hidden></div>
             <link rel=stylesheet href="~/css/assets.min.css?v=pC99z4nR8ke9vhJ9o1QGU1oJz2MSCaHTJvXg3_QP3Sc">
-          @*  <link rel=stylesheet href="~/lib/font-awesome/web-fonts-with-css/css/all.min.css?v=h8JWykigQCDFpCwkC3jVrrKZ58vuXBfWlig_lGnEUqU">*@
+            <link rel=stylesheet href="/lib/font-awesome/web-fonts-with-css/css/all.min.css?v=h8JWykigQCDFpCwkC3jVrrKZ58vuXBfWlig_lGnEUqU">
             <link rel=stylesheet media=print href="~/css/print.min.css?v=rrvfSTNV5DvKq8zWu0XF8M-acQR9lm0CSnecNFERf3U">
-            <script src="~/lib/modernizr/modernizr.js?v=xMx8CS2wxOLN9v0agX9CD_alyVNuh7PE-_SrUqGaRao"></script>
+            <script src="/lib/modernizr/modernizr.js?v=xMx8CS2wxOLN9v0agX9CD_alyVNuh7PE-_SrUqGaRao"></script>
             <script>
                 function addCSS(filename) {
                     let head = document.getElementsByTagName('head')[0];
@@ -2469,5 +2420,4 @@
                 })
             </script>
             </body>
-
-              </html>
+            </html>
