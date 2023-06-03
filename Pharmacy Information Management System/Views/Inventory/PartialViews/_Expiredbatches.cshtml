@@ -1,0 +1,45 @@
+﻿   <div class="modal fade expired-batches-modal" aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                                <div class="modal-dialog modal-lg" role=document>
+                                    <div class=modal-content>
+                                        <div class=modal-header>
+                                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                                <span aria-hidden=true>&times;</span>
+                                            </button>
+                                            <h4 class=modal-title id=myModalLabel>Expired Batches</h4>
+                                        </div>
+                                        <div class=modal-body>
+                                            <div class=row>
+                                                <div class=col-md-12>
+                                                    <div class=table-responsive id=no-more-tables>
+                                                        <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=expiredbatchestable>
+                                                            <thead class=cf>
+                                                                <tr>
+                                                                    <th>
+                                                                        <input class=selectAllE name=select_all_e value=1 type=checkbox>
+                                                                        <th>
+                                                                            <strong>Name</strong>
+                                                                        <th>
+                                                                            <strong>Batch</strong>
+                                                                        <th>
+                                                                            <strong>Expiry Date</strong>
+                                                                        <th>
+                                                                            <strong>Cost</strong>
+                                                                        <th>
+                                                                            <strong>Available Qty</strong>
+                                                                        <th>
+                                                                            <strong>Total Qty</strong>
+                                                                            <tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=modal-footer>
+                                            <div class="btn-group btn-group-sm pull-right">
+                                                <button id=btnNearExpiryReport class="btn btn-default">Products Near Expiry Report</button>
+                                                <button id=btnDisposeExpired class="btn btn-danger pull-right ladda-button" data-style=expand-right data-size=s>Dispose Selected</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>

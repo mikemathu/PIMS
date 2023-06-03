@@ -1,0 +1,46 @@
+﻿<div class="modal fade import-products-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+<div class="modal-dialog modal-sm" role=document>
+    <div class=modal-content>
+        <div class=modal-header>
+            <button type=button class=close data-dismiss=modal aria-label=Close>
+                <span aria-hidden=true>&times;</span>
+            </button>
+            <button class="close modalMinimize">
+                <i class="fa fa-minus"></i>
+            </button>
+            <h4 class=modal-title id=myModalLabel>
+                <strong>
+                    <span class=stolocchosen hidden></span>
+                </strong>
+                <small>Import Products</small>
+            </h4>
+        </div>
+        <div class=modal-body>
+            <div class=row>
+                <div class=col-md-12>
+                    <form method=post id=ImportProductsForm enctype=multipart/form-data>
+                        <div class=form-group>
+                            <label>
+                                <strong>
+                                    <small>Choose file to import: </small>
+                                </strong>
+                            </label>
+                            <input class="form-control input-sm" id=csvFile type=file accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
+                        </div>
+                        <button title="Upload File" id=btnImportCsv class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
+                            <span class="fas fa-upload"></span>
+                        </button>
+                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class=row>
+                <div class=col-md-12>
+                    <button class="btn btn-primary btn-block" type=button id=btnDownloadSample onclick="location.href='/Inventory/DownloadSampleCsv'">Download sample file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                            </div>

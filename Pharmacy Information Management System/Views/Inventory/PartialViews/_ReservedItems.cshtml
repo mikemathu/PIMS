@@ -1,0 +1,67 @@
+﻿  <div class="modal fade reserved-items-modal" aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                                <div class="modal-dialog custom-class" role=document>
+                                    <div class=modal-content>
+                                        <div class=modal-header>
+                                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                                <span aria-hidden=true>&times;</span>
+                                            </button>
+                                            <h4 class=modal-title id=myModalLabel>
+                                                Reserved Quantities - <span class="prod-name text-info"></span>
+                                            </h4>
+                                        </div>
+                                        <div class=modal-body>
+                                            <div class=row>
+                                                <div class=col-md-12>
+                                                    <div class=table-responsive id=no-more-tables>
+                                                        <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=reservedtable>
+                                                            <thead class=cf>
+                                                                <tr>
+                                                                    <th>
+                                                                        <input class=selectAll name=select_all value=1 type=checkbox>
+                                                                        <th>
+                                                                            <strong>Bill #</strong>
+                                                                        <th>
+                                                                            <strong>Item</strong>
+                                                                        <th>
+                                                                            <strong>Customer</strong>
+                                                                        <th>
+                                                                            <strong>Billed On</strong>
+                                                                        <th>
+                                                                            <strong>Quantity</strong>
+                                                                        <th>
+                                                                            <strong>Status</strong>
+                                                                        <th>
+                                                                            <strong>Net Amount</strong>
+                                                                            <tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=modal-footer>
+                                            <div class=row>
+                                                <div class=col-md-6>
+                                                    <form class=form-inline>
+                                                        <div class="form-group pull-left">
+                                                            <label>
+                                                                <small>Status</small>
+                                                            </label>
+                                                            <select id=ReserveStatus class="form-control input-sm">
+                                                                <option value=1>Paid/Invoiced</option>
+                                                                <option value=0>Pending payment</option>
+                                                                <option value=-1>All</option>
+                                                            </select>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class=col-md-6>
+                                                    <div class="btn-group btn-group-xs pull-right">
+                                                        <button type=button id=btnDispenseSelected class="btn btn-primary ladda-button" data-style=expand-right data-size=s>Dispense Selected</button>
+                                                        <button type=button id=btnVoidSelected class="btn btn-danger ladda-button" data-style=expand-right data-size=s>Void Selected</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div

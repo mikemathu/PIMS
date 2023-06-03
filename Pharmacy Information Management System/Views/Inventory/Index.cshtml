@@ -1,0 +1,1001 @@
+﻿
+                <div class=sidebar-control>
+                    <button class=sidebar-control-btn title="Toggle side menu">
+                        <i class=fas id=side-bar-icon></i>
+                    </button>
+                </div>
+                <div id=page-wrapper>
+                    <div class=container-fluid>
+                        <div class="row marginRow well well-sm">
+                            <div class=col-sm-4>
+                                <h5>
+                                    <strong>Demo Hospital</strong>
+                                </h5>
+                            </div>
+                            <div class=col-sm-4>
+                                <h5>
+                                    Branch: 
+                                    <a href=# style=text-decoration:none data-toggle=modal data-target=.select-branch-modal>
+                                        <span class=text-info>Main branch </span>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div class=col-sm-3>
+                                <h5>
+                                    Room: 
+                                    <a href=# style=text-decoration:none data-toggle=modal data-target=.signin-to-room-modal>
+                                        <span id=userroomname class=text-info>Nursing Station</span>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div class=col-sm-1>
+                                <div style=margin-top:7px>
+                                    <a href=# id=btnViewQueue class="btn btn-primary btn-xs btnapp">Queue</a>
+                                </div>
+                            </div>
+                        </div>
+                        <ol class="breadcrumb" id="appBreadcrumb">
+                            <li>
+                                <a href="/">
+                                    <i class="fas fa-home"></i>
+                                </a>
+                                </li>
+                            <li class="dropdown">
+                                <a href="/" data-toggle="dropdown" class="dropdown-toggle" style="text-decoration:none">
+                                    Inventory <b class="caret"></b>
+                                </a>
+                                </li>
+                                <ul class="dropdown-menu breadcumb-links">
+                                    <li>
+                                        <a href="/Inventory/UnitOfMeasure">
+                                            <small>Unit Of Measure</small>
+                                        </a>
+                                        </li>
+                                    <li>
+                                        <a href="/Inventory/StockTake">
+                                            <small>Stock Take</small>
+                                        </a>
+                                        </li>
+                                    <li>
+                                        <a href="/Inventory/MaterialConsumption">
+                                            <small>Material Consumption</small>
+                                        </a>
+                                        </li>
+                                    <li>
+                                        <a href="/Inventory/InterbranchOrders">
+                                            <small>Interbranch Orders</small>
+                                        </a>
+                                        </li>
+                                    <li>
+                                        <a href="/Inventory/InternalOrders">
+                                            <small>Internal Orders</small>
+                                        </a>
+                                        </li>
+                                </ul>
+                            <li>
+                                <a href=/Inventory/Inventory>Inventory</a>
+                            </li>
+                            <span class="pull-right">
+                                <a href=# id=OpenUserGuide title="User Guide">
+                                    <i class="fas fa-question-circle"></i>
+                                    Guide
+                                </a>
+                            </span>
+                        </ol>
+                        <div id=divBody class=animate-bottom>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <div class="panel panel-default">
+                                        <div id=backUp></div>
+                                        <div class="panel-heading clearfix">
+                                            <h5 class=panel-title>
+                                                <strong>
+                                                    <span class=stolocchosen hidden></span>
+                                                </strong>
+                                                Inventory Item Details 
+                                                <a href=# id=changeStoloc>
+                                                    <small>
+                                                        <i>(click here to change)</i>
+                                                    </small>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <div class=col-md-12>
+                                                    <form class=form-inline method=post id=SearchProductForm>
+                                                        <div class=form-group>
+                                                            <div class="input-group input-group-sm">
+                                                                <span class=input-group-addon id=search>
+                                                                    <span class="fa fa-search"></span>
+                                                                </span>
+                                                                <input class="form-control isbn" id=searchIndex aria-describedby=search placeholder="Search here..." required>
+                                                            </div>
+                                                        </div>
+                                                        <button type=button class="btn btn-default btn-sm button scan" id=btnScan>
+                                                            <span class="glyphicon glyphicon-barcode"></span>
+                                                        </button>
+                                                        <button class="btn btn-default btn-sm ladda-button" id=btnsearchitem data-style=expand-right data-size=s>Search</button>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row marginRow">
+                                                <form method=post id=InventoryItemForm>
+                                                    <input hidden type=number data-val=true data-val-required="The ItemID field is required." id=Item_ItemID name=Item.ItemID>
+                                                    <input hidden type=number data-val=true data-val-required="The ItemStorageLocationID field is required." id=ItemStorageLocation_ItemStorageLocationID name=ItemStorageLocation.ItemStorageLocationID>
+                                                    <input hidden type=number data-val=true data-val-required="The CompanyBranchItemID field is required." id=ItemStorageLocation_CompanyBranchItemID name=ItemStorageLocation.CompanyBranchItemID>
+                                                    <input hidden type=number data-val=true data-val-required="The CompanyBranchItemID field is required." id=CompanyBranchItem_CompanyBranchItemID name=CompanyBranchItem.CompanyBranchItemID>
+                                                    <input type=number value=1 hidden data-val=true data-val-required="The Type field is required." id=Item_Type name=Item.Type>
+                                                    <input type=number step=any hidden data-val=true data-val-number="The field PreviousUnitCost must be a number." data-val-required="The PreviousUnitCost field is required." id=PreviousUnitCost name=PreviousUnitCost>
+                                                    <input type=number step=any hidden data-val=true data-val-number="The field PreviousQuantity must be a number." data-val-required="The PreviousQuantity field is required." id=PreviousQuantity name=PreviousQuantity>
+                                                    <input type=number step=any hidden data-val=true data-val-number="The field PreviousUnitPrice must be a number." data-val-required="The PreviousUnitPrice field is required." id=PreviousUnitPrice name=PreviousUnitPrice>
+                                                    <div class=col-sm-4>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Name</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" required data-val=true data-val-required="The Name field is required." id=Item_Name name=Item.Name>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Item Category</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The ItemCategoryID field is required." id=Item_ItemCategoryID name=Item.ItemCategoryID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Item Class</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The ItemClassID field is required." id=Item_ItemClassID name=Item.ItemClassID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Inventory Sub-Account</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The AssetSubAccountID field is required." id=CompanyBranchItem_AssetSubAccountID name=CompanyBranchItem.AssetSubAccountID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Cost Of Sale Sub-Account</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The CostOfSaleSubAccountID field is required." id=CompanyBranchItem_CostOfSaleSubAccountID name=CompanyBranchItem.CostOfSaleSubAccountID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Income Sub-Account</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The RevenueSubAccountID field is required." id=CompanyBranchItem_RevenueSubAccountID name=CompanyBranchItem.RevenueSubAccountID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-3>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>VAT Type</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The VATTypeID field is required." id=CompanyBranchItem_VATTypeID name=CompanyBranchItem.VATTypeID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Other Tax</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" data-val=true data-val-required="The OtherTaxID field is required." id=CompanyBranchItem_OtherTaxID name=CompanyBranchItem.OtherTaxID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Unit Cost (BP)</small>
+                                                            </label>
+                                                            <input type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitCost must be a number." data-val-required="The UnitCost field is required." id=ItemStorageLocation_UnitCost name=ItemStorageLocation.UnitCost>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Unit Price (For cash payers)</small>
+                                                            </label>
+                                                            <input type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitPrice must be a number." data-val-required="The UnitPrice field is required." id=UnitPrice name=UnitPrice>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Available Quantity</small>
+                                                            </label>
+                                                            <input type=number step=any class="form-control input-sm" required readonly data-val=true data-val-number="The field AvailableQuantity must be a number." data-val-required="The AvailableQuantity field is required." id=ItemStorageLocation_AvailableQuantity name=ItemStorageLocation.AvailableQuantity>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Total Quantity</small>
+                                                            </label>
+                                                            <input type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field TotalQuantity must be a number." data-val-required="The TotalQuantity field is required." id=ItemStorageLocation_TotalQuantity name=ItemStorageLocation.TotalQuantity>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-3>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Unit Of Measure</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The UnitOfMeasureID field is required." id=Item_UnitOfMeasureID name=Item.UnitOfMeasureID>
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Batch No</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" required id=ItemStorageLocation_Batch name=ItemStorageLocation.Batch>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Batch Expiry Date</small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" required data-val=true data-val-required="The ExpiryDate field is required." id=ItemStorageLocation_ExpiryDate name=ItemStorageLocation.ExpiryDate>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Item Code</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=CompanyBranchItem_ItemCode name=CompanyBranchItem.ItemCode>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Barcode</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=CompanyBranchItem_Barcode name=CompanyBranchItem.Barcode>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Reorder Level</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" data-val=true data-val-number="The field ReorderLevel must be a number." data-val-required="The ReorderLevel field is required." id=ItemStorageLocation_ReorderLevel name=ItemStorageLocation.ReorderLevel>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <div class=checkbox>
+                                                                <label class=checkbox>
+                                                                    <input type=checkbox id=IsNewBatch>Create a new batch 
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div id=updateproduct hidden>
+                                                            <div class="btn-group pull-right">
+                                                                <button id=btnupdateproduct class="btn btn-primary btn-xs ladda-button" data-style=expand-right data-size=s>Update</button>
+                                                                <a id=btnCreateNewProduct class="btn btn-primary btn-xs">New</a>
+                                                            </div>
+                                                        </div>
+                                                        <div id=addproduct>
+                                                            <button id=btnaddproduct class="btn btn-primary btn-xs pull-right ladda-button" data-style=expand-right data-size=s>
+                                                                <span class="glyphicon glyphicon-plus"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                </form>
+                                                <div class=col-sm-2>
+                                                    <div class="row text-center">
+                                                        <div class="btn-group-vertical btn-group-sm">
+                                                            <button class="btn btn-primary" id=btnViewReservedItems>View Reserved</button>
+                                                            <button class="btn btn-link" style=background-color:transparent disabled>
+                                                                <i class="glyphicon glyphicon-option-vertical"></i>
+                                                            </button>
+                                                            <button class="btn btn-primary" data-toggle=modal data-target=.import-products-modal>Import Products</button>
+                                                            <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnExportProducts>Export Products</button>
+                                                            <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnCreateopeningstock>Create Opening Stock</button>
+                                                            <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnSyncInvItems>Sync Inventory Items</button>
+                                                            <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnRetireOldBatches>Retire Old Batches</button>
+                                                            <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnMergeBatches>Merge Batches</button>
+                                                            <button class="btn btn-warning" id=btnViewExpiredBatches>View Expired Batches</button>
+                                                            <button class="btn btn-link" style=background-color:transparent disabled>
+                                                                <i class="glyphicon glyphicon-option-vertical"></i>
+                                                            </button>
+                                                            <button class="btn btn-default" data-toggle=modal data-target=.item-class-modal>Item Classes</button>
+                                                            <button class="btn btn-default" data-toggle=modal data-target=.item-categories-modal>Item Categories</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id=scrolltohere></div>
+                                            <div class=panel-heading>
+                                                <h5 class=panel-title>
+                                                    <strong>
+                                                        <span class=stolocchosen hidden></span>
+                                                    </strong>
+                                                    View: Inventory Items
+                                                </h5>
+                                            </div>
+                                            <div class=table-responsive id=no-more-tables>
+                                                <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=inventoryitemstable>
+                                                    <thead class=cf>
+                                                        <tr>
+                                                            <th>
+                                                                <strong>Name</strong>
+                                                            <th>
+                                                                <strong>Batch No</strong>
+                                                            <th>
+                                                                <strong>Unit Cost</strong>
+                                                            <th>
+                                                                <strong>Unit Price</strong>
+                                                            <th>
+                                                                <strong>Total Quantity</strong>
+                                                            <th>
+                                                                <strong>Available Quantity</strong>
+                                                            <th>
+                                                                <strong>Expires On</strong>
+                                                                <tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class=panel-footer>
+                                            <div class="row no-gutter">
+                                                <div class=col-md-12>
+                                                    <form class=form-inline method=post id=FilterForm>
+                                                        <div class=form-group>
+                                                            <label for=flag>
+                                                                <small>Filter: </small>
+                                                            </label>
+                                                            <select class="form-control input-sm" id=flag>
+                                                                <option value=0>All Active Products</option>
+                                                                <option value=1>All Inactive Products</option>
+                                                                <option value=2>Reserved Products</option>
+                                                                <option value=3>Products Out of Stock</option>
+                                                                <option value=4>Expired Products</option>
+                                                                <option value=5>Products Below Reorder Level</option>
+                                                            </select>
+                                                        </div>
+                                                        <button id=btnfilterproducts class="btn btn-info btn-xs ladda-button" data-style=expand-right data-size=s>View</button>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            
+                            
+                  
+
+                            
+                          
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+          
+@await Html.PartialAsync("./PartialViews/_ItemCategory")
+@await Html.PartialAsync("./PartialViews/_Expiredbatches")
+@await Html.PartialAsync("./PartialViews/_Barcode")
+@await Html.PartialAsync("./PartialViews/_CreateOpeningStock")
+@await Html.PartialAsync("./PartialViews/_ImportProducts")
+@await Html.PartialAsync("./PartialViews/_ItemClass")
+@await Html.PartialAsync("./PartialViews/_ReservedItems")
+
+            @*<div class="modal fade add-town-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog modal-sm" role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Add a town</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <form method=post id=AddATownForm>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Town name: </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=TownName required placeholder="Town Name...">
+                                        </div>
+                                        <button id=addTown class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+           @* <div class="modal fade add-occupation-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog modal-sm" role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Add an occupation</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <form method=post id=AddOccupationForm>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Occupation name: </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=OccupationName required placeholder="Occupation Name...">
+                                        </div>
+                                        <button id=addOccupation class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+          @*  <div class="modal fade add-nationality-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog modal-sm" role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Add a Nationality</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <form method=post id=AddANationalityForm>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Country Code: </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=CountryCode type=number required placeholder="Country Code...">
+                                        </div>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Country name: </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=CountryName required placeholder="Country Name...">
+                                        </div>
+                                        <button id=addNationality class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+           @* <div class="modal fade add-accountclass-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog modal-sm" role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Add an Account Class</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <form method=post id=AddAccountClassForm>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Name: </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=AccountClassName required placeholder="Account Class Name...">
+                                        </div>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Account Type: </small>
+                                                </strong>
+                                            </label>
+                                            <select class="form-control input-sm" id=AccountType required>
+                                                <option></option>
+                                                <option value=1>Owner's Equity</option>
+                                                <option value=2>Liability</option>
+                                                <option value=3>Revenue</option>
+                                                <option value=4>Asset</option>
+                                            <option value=5>Expenses</option>
+                                            </select>
+                                        </div>
+                                        <button id=addAccountClass class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+          @*  <div class="modal fade signin-to-room-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog modal-sm" role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button id=btnCloseModal class=close data-dismiss=modal aria-label=Close style=display:none>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Sign In To A Room</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <form method=post id=SignInToRoomForm>
+                                    <div class=col-md-12>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Select Room: </small>
+                                                </strong>
+                                            </label>
+                                            <select class="form-control input-sm" id=RoomUserRoom required disabled>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Status: </small>
+                                                </strong>
+                                            </label>
+                                            <select class="form-control input-sm" id=RoomUserStatus required disabled>
+                                                <option value=1>Available</option>
+                                                <option value=2>Busy</option>
+                                                <option value=3>Stepped Out</option>
+                                            </select>
+                                        </div>
+                                        <button id=btnSignInToRoom class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s></button>
+                                    </div>
+                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        @*    <div class="modal fade report-modal" role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog custom-class">
+                    <div class=modal-content>
+                        <div class="modal-header clearfix">
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <div class="btn-group pull-left">
+                                    <button class="btn btn-info btn-xs dropdown-toggle" type=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>
+                                        Share <span class=caret></span>
+                                    </button>
+                                    <ul class=dropdown-menu>
+                                        <li>
+                                            <a href=# id=shareWithUsers>With User(s)</a>
+                                        <li>
+                                            <a href=# data-toggle=modal data-target=.share-report-email-modal>Via Email</a>
+                                    </ul>
+                                </div>
+                            </h4>
+                        </div>
+                        <div class=modal-body style=height:86vh>
+                            <div class=row>
+                                <iframe class="col-lg-12 col-md-12 col-sm-12" id=ReportIframe src=about:blank onload="if(typeof TestConnection==='function'){TestConnection();}" marginheight=0 frameborder=0 border=0 scrolling=auto style="height:85vh;width:100% !important"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+          
+            
+        @*    <div class="modal fade select-users-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel>
+                <div class=modal-dialog role=document>
+                    <div class=modal-content>
+                        <div class=modal-body>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <form method=post id=ShareReportForm>
+                                        <div class=input-group>
+                                            <select type=text class="form-control input-sm" id=shareUsers style=width:100% multiple required></select>
+                                            <span class=input-group-btn>
+                                                <button id=btnShareReport class="btn btn-primary btn-sm ladda-button" data-style=expand-right data-size=s>
+                                                    <i class="fas fa-share"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+         @*   <div class="modal fade select-branch-modal" role=dialog aria-labelledby=myModalLabel>
+                <div class="modal-dialog modal-sm">
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Select Branch</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <form id=SwitchBranchForm method=post>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Select Branch: </small>
+                                                </strong>
+                                            </label>
+                                            <select class="form-control input-sm" id=SwitchBranchID style=width:100% required></select>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s id=btnSwitchBranch>Switch</button>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+     
+            
+@*<div class="modal fade share-report-email-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class=modal-dialog role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Share Report via Email</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <form method=post id=ShareReportViaEmailForm>
+                                    <div class=col-md-12>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>
+                                                        Recipient(s) <i>Separate email addresses using ';'</i>
+                                                    </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=ShareEmailReportEmailAddresses required>
+                                        </div>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Subject </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=ShareEmailReportSubject required>
+                                        </div>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Body </small>
+                                                </strong>
+                                            </label>
+                                            <textarea class="form-control input-sm" id=ShareEmailReportBody rows=8 required></textarea>
+                                        </div>
+                                        <button id=btnShareEmailReport class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>Send</button>
+                                    </div>
+                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        @*    <div class="modal fade supporting-documents-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog modal-lg" role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal aria-label=Close>
+                                <span aria-hidden=true>&times;</span>
+                            </button>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    Files for <span class=text-info id=txtSupportingDocumentLabel></span>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=table-responsive id=no-more-tables>
+                                <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=supportingdocumentstable>
+                                    <thead class=cf>
+                                        <tr>
+                                            <th>
+                                                <strong>Name</strong>
+                                            <th>
+                                                <strong>Timestamp</strong>
+                                            <th>
+                                                <strong>Type</strong>
+                                            <th>
+                                                <strong>Size</strong>
+                                            <th>
+                                            <th>
+                                            <th>
+                                                <tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class=modal-footer>
+                            <div class=row>
+                                <div class=col-md-6>
+                                    <button type=button class="btn btn-primary btn-xs ladda-button pull-left" id=btnLoadAllSupportingDocuments data-style=expand-right data-size=s>Load All Uploaded Files</button>
+                                </div>
+                                <div class=col-md-6>
+                                    <form class=form-inline method=post id=UploadSupportingDocumentForm>
+                                        <div class=form-group>
+                                            <label>
+                                                <strong>
+                                                    <small>Upload File: </small>
+                                                </strong>
+                                            </label>
+                                            <input class="form-control input-sm" id=SupportingDocumentFile type=file accept=* required>
+                                        </div>
+                                        <button class="btn btn-info btn-xs ladda-button" id=btnUploadSupportingDocument data-style=expand-right data-size=s>Upload</button>
+                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+         
+          @*  <div class="modal fade begin-cashier-shift-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+                <div class="modal-dialog modal-sm" role=document>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <h4 class=modal-title id=myModalLabel>
+                                <strong>
+                                    <small>Begin Cashier Shift</small>
+                                </strong>
+                            </h4>
+                        </div>
+                        <div class=modal-body>
+                            <div class=row>
+                                <div class=col-md-12>
+                                    <p>You are required to have an active cashier shift:
+                                    <dl class=dl-horizontal>
+                                        <dt>Active Shift:
+                                        <dd>
+                                            <div class=text-info id=divActiveCashierShift></div>
+                                    </dl>
+                                    <div class="btn-group btn-group-xs pull-right">
+                                        <button type=button id=btnBeginCashierShiftIgnore class="btn btn-warning">Ignore</button>
+                                        <button type=button id=btnBeginCashierShift class="btn btn-primary ladda-button" data-style=expand-right data-size=s disabled>Begin Cashier Shift</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            <div id=toast></div>
+            <div class=minmaxCon id=taskbar style=display:none></div>
+
+
+
+
+
+
+
+            <script src="~/lib/jquery/dist/jquery.min.js?v=CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo"></script>
+            <script>
+                $(document).ready(function() {
+                    $("#btnSignInToRoom").text('Sign Out');
+                    $('#RoomUserStatus').val(UserRoomStatus);
+                    $('#btnCloseModal').show();
+                    $('#RoomUserStatus').prop('disabled', false);
+                });
+            </script>
+            <script>
+                window.onload = function() {
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById("divBody").style.display = "block";
+                }
+                ;
+            </script>
+            <script src="~/js/signalr/signalr.min.js?v=aNSbXaEA6wcVsUTxsuF1mI-mKauMNEMkhXShRZaQMnE" defer></script>
+            <script src="~/js/main.min.js?v=FGdNIVyQp87KxSZVvrK9dunmd0HJo5hCDmHZAX_FxeE" defer></script>
+            <script>
+                const GuideLink = 'Inventory';
+            </script>
+            <script>
+                EnterSubmitsFormsOnThisPage = true;
+            </script>
+            <script src="~/js/quagga/quagga.min.js?v=JDVyLQRqvRSTL_6WaPud93JXpfEdW11zwjqhoNgkGXc" defer></script>
+            <script src="~/js/bacodescanner.js?v=PvSeFZtOSKE3EkUpoOEz49wl2jH-BwFaW76RYtqNnbY" defer></script>
+            <script src="~/js/inventory/inventory.min.js?v=0-WIF2KD19xgySOGzePhFkwCdeO5lAsPPOmxNVDMvk4" defer></script>
+            <script>
+                $(function() {
+                    $.contextMenu({
+                        selector: '#body',
+                        trigger: 'right',
+                        autoHide: true,
+                        zIndex: 9999,
+                        reposition: false,
+                        callback: function(key, options) {
+                            switch (key) {
+                            case 'addshortcut':
+                                $('.select-shortcuts-modal').modal('toggle');
+                                break;
+                            case 'back':
+                                window.history.back();
+                                break;
+                            case 'forward':
+                                window.history.forward();
+                                break;
+                            case 'refresh':
+                                if (typeof ReloadPage === "function") {
+                                    ReloadPage();
+                                }
+                                break;
+                            case 'clear':
+                                if (typeof ClearData === "function") {
+                                    ClearData();
+                                }
+                                break;
+                            case 'copy':
+                                if (window.getSelection) {
+                                    clipBoard = window.getSelection().toString();
+                                } else if (document.selection && document.selection.type != "Control") {
+                                    clipBoard = document.selection.createRange().text;
+                                }
+                                if (!navigator.clipboard) {
+                                    document.execCommand("copy");
+                                } else {
+                                    navigator.clipboard.writeText(clipBoard).then(function() {
+                                        ShowToast('copied');
+                                    }, function(err) {
+                                        console.error('Could not copy text: ', err);
+                                    });
+                                }
+                                break;
+                            case 'paste':
+                                if (!navigator.clipboard) {
+                                    if ($focused !== undefined) {
+                                        $focused.val(clipBoard);
+                                    }
+                                    document.execCommand("paste");
+                                } else {
+                                    navigator.clipboard.readText().then(clipText=>{
+                                        if ($focused !== undefined) {
+                                            $focused.val(clipText);
+                                        }
+                                    }
+                                    );
+                                }
+                                break;
+                            case 'diagnose':
+                                DiagnoseInventory();
+                                break;
+                            }
+                        },
+                        items: {
+                            "refresh": {
+                                name: "Refresh",
+                                icon: "fas fa-sync-alt"
+                            },
+                            "back": {
+                                name: "Back",
+                                icon: "fas fa-arrow-left"
+                            },
+                            "forward": {
+                                name: "Forward",
+                                icon: "fas fa-arrow-right"
+                            },
+                            "clear": {
+                                name: "Clear",
+                                icon: "delete"
+                            },
+                            "sep0": "---------",
+                            "copy": {
+                                name: "Copy",
+                                icon: "copy"
+                            },
+                            "paste": {
+                                name: "Paste",
+                                icon: "paste"
+                            },
+                            "sep1": "---------",
+                            'diagnose': {
+                                'name': 'Diagnose Inventory',
+                                icon: 'fab fa-autoprefixer'
+                            },
+                            'sep3': '---------',
+                            "quit": {
+                                name: "Quit",
+                                icon: function() {
+                                    return 'context-menu-icon context-menu-icon-quit';
+                                }
+                            }
+                        }
+                    });
+                });
+            </script>
+            <div style=size:auto;margin:0 id=silent-print hidden></div>
+            <link rel=stylesheet href="~/css/assets.min.css?v=pC99z4nR8ke9vhJ9o1QGU1oJz2MSCaHTJvXg3_QP3Sc">
+          @*  <link rel=stylesheet href="~/lib/font-awesome/web-fonts-with-css/css/all.min.css?v=h8JWykigQCDFpCwkC3jVrrKZ58vuXBfWlig_lGnEUqU">*@
+            <link rel=stylesheet media=print href="~/css/print.min.css?v=rrvfSTNV5DvKq8zWu0XF8M-acQR9lm0CSnecNFERf3U">
+            <script src="~/lib/modernizr/modernizr.js?v=xMx8CS2wxOLN9v0agX9CD_alyVNuh7PE-_SrUqGaRao"></script>
+            <script>
+                function addCSS(filename) {
+                    let head = document.getElementsByTagName('head')[0];
+                    let style = document.createElement('link');
+                    style.href = filename;
+                    style.type = 'text/css';
+                    style.rel = 'stylesheet';
+                    head.append(style);
+                }
+                if (!Modernizr.inputtypes['datetime-local']) {
+                    addCSS("/lib/datetimepicker/jquery.datetimepicker.css");
+                    $.getScript("/lib/datetimepicker/jquery.datetimepicker.js", function() {
+                        $('input[type=datetime-local]').datetimepicker({
+                            value: this,
+                            step: 1
+                        });
+                    });
+                }
+            </script>
+            <script>
+                'serviceWorker'in navigator && navigator.serviceWorker.register('/serviceworker', {
+                    scope: '/'
+                })
+            </script>
+           

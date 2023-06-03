@@ -1,0 +1,37 @@
+﻿<div class="modal fade quagga-modal" aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+<div class=modal-dialog role=document>
+    <div class=modal-content>
+        <div class=modal-header>
+            <button type=button class="close stop" data-dismiss=modal aria-label=Close>
+                <span aria-hidden=true>&times;</span>
+            </button>
+            <h4 class=modal-title id=myModalLabel>Barcode Scanner</h4>
+        </div>
+        <div class=modal-body>
+            <div class=row>
+                <div class=col-md-12>
+                    <div class=controls>
+                        <div class=reader-config-group>
+                            <label>
+                                <span>Camera</span>
+                                <select name=input-stream_constraints id=deviceSelection></select>
+                            </label>
+                            <label style=display:none>
+                                <span>Zoom</span>
+                                <select name=settings_zoom></select>
+                            </label>
+                            <label style=display:none>
+                                <span>Torch</span>
+                                <input type=checkbox name=settings_torch>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=row>
+                <div id=interactive class="viewport col-md-12"></div>
+            </div>
+        </div>
+    </div>
+</div>
+                            </div>

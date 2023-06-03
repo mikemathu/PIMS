@@ -1,0 +1,49 @@
+﻿<div class="modal fade create-opening-stock-modal" tabindex=-1 role=dialog aria-labelledby=myModalLabel data-keyboard=false data-backdrop=static>
+<div class="modal-dialog modal-sm" role=document>
+    <div class=modal-content>
+        <div class=modal-header>
+            <button type=button class=close data-dismiss=modal aria-label=Close>
+                <span aria-hidden=true>&times;</span>
+            </button>
+            <h4 class=modal-title id=myModalLabel>
+                <strong>
+                    <small>
+                        <b>
+                            Create Opening Stock: <span class=text-info id=txtCOSStorageLoc></span>
+                        </b>
+                    </small>
+                </strong>
+            </h4>
+        </div>
+        <div class=modal-body>
+            <div class=row>
+                <div class=col-md-12>
+                    <form method=post id=CreateOpeningStockForm>
+                        <div class=form-group>
+                            <label>
+                                <small>Create for</small>
+                            </label>
+                            <select class="form-control input-sm" id=CreateOpeningStockFor required>
+                                <option value=1>All Products</option>
+                                <option value=2>Selected Category(s)</option>
+                            </select>
+                        </div>
+                        <div id=divOSCategory hidden>
+                            <div class=form-group>
+                                <label>
+                                    <small>Service Category</small>
+                                </label>
+                                <select class="form-control input-sm" id=OpenStockItemCategoryIds style=width:100% multiple>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-xs pull-right ladda-button" id=btnCreateOpeningStockForm data-style=expand-right data-size=s>Create Opening Stock</button>
+                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                            </div>
