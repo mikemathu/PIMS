@@ -1,0 +1,177 @@
+﻿<div class=row>
+        <div class=col-md-6>
+            <div class="panel panel-default">
+                <div class=panel-heading>
+                    <h6 class=panel-title>Unit Of Measure Details</h6>
+                </div>
+                <div class=panel-body>
+                    <form method=post id=UnitOfMeasureForm>
+                        <input hidden type=number data-val=true data-val-required="The UnitOfMeasureID field is required." id=UnitOfMeasure_UnitOfMeasureID name=UnitOfMeasure.UnitOfMeasureID>
+                        <div class=row>
+                            <div class=col-sm-6>
+                                <div class=form-group>
+                                    <label>
+                                        <small>Name</small>
+                                    </label>
+                                    <input class="form-control input-sm" required data-val=true data-val-required="The Name field is required." id=UnitOfMeasure_Name name=UnitOfMeasure.Name>
+                                </div>
+                                <div class=form-group>
+                                    <label>
+                                        <small>Dosage Unit [E.g. mL, Tablet]</small>
+                                    </label>
+                                    <input class="form-control input-sm" id=UnitOfMeasure_DosageUnit name=UnitOfMeasure.DosageUnit>
+                                </div>
+                            </div>
+                            <div class=col-sm-6>
+                                <div class=form-group>
+                                    <label>
+                                        <small>Prescription Verb [E.g. Take, Apply]</small>
+                                    </label>
+                                    <input class="form-control input-sm" id=UnitOfMeasure_PrescriptionVerb name=UnitOfMeasure.PrescriptionVerb>
+                                </div>
+                                <div class=checkbox>
+                                    <label class=checkbox>
+                                        <input type=checkbox id=IsSmallestUnit>Is smallest unit 
+                                    </label>
+                                </div>
+                                <div class=checkbox>
+                                    <label class=checkbox>
+                                        <input type=checkbox id=IsComputable>Is Computable on Prescriptions 
+                                    </label>
+                                </div>
+                                <div id=updateunitofmeasure hidden>
+                                    <div class="btn-group btn-group-xs pull-right">
+                                        <button id=btnupdateunitofmeasure class="btn btn-primary ladda-button" data-style=expand-right data-size=s>Update</button>
+                                        <a id=btnCreateNewUnitOfMeasure class="btn btn-primary">New</a>
+                                    </div>
+                                </div>
+                                <div id=addunitofmeasure>
+                                    <button id=btnaddunitofmeasure class="btn btn-primary btn-xs pull-right ladda-button" data-style=expand-right data-size=s>
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWBqFmIUXTlFkFkLJy0F2ol7NfOI8J4AWR-oe0Rb__3mlfy3TKlGQejXVFZ50Vz9ndbhrCrAZzWl6DnAnGh4FIGULhgcUyk4elsDwDdCkrijAwTLKErjFQNN-0MkRixTt9Q-VvCFwBUnFrFnopE8jxz8pFwtporfCoakn6B1E6xFw>
+                    </form>
+                </div>
+                <div class=panel-heading>
+                    <h6 class=panel-title>View: Unit Of Measures</h6>
+                </div>
+                <div class=table-responsive id=no-more-tables>
+                    <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=unitofmeasurestable>
+                        <thead class=cf>
+                            <tr>
+                                <th>
+                                    <strong>No</strong>
+                                <th>
+                                    <strong>Name</strong>
+                                <th>
+                                    <strong>Dosage</strong>
+                                <th>
+                                    <strong>Verb</strong>
+                                <th>
+                                    <strong>Flags</strong>
+                                    <tbody>
+                    </table>
+                    <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%; max-height: 30vh; height: 40vh;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class=col-md-6>
+            <div class="panel panel-default">
+                <div class=panel-heading>
+                    <h6 class=panel-title>Unit Conversion Details</h6>
+                </div>
+                <div class=panel-body>
+                    <form method=post id=UnitConversionForm>
+                        <input hidden type=number data-val=true data-val-required="The UnitConversionID field is required." id=UnitConversion_UnitConversionID name=UnitConversion.UnitConversionID>
+                        <div class=row>
+                            <div class=col-sm-6>
+                                <div class=form-group>
+                                    <label>
+                                        <small>From (Unit Of Measure)</small>
+                                    </label>
+                                    <select class="form-control input-sm" required data-val=true data-val-required="The FromUnitOfMeasureID field is required." id=UnitConversion_FromUnitOfMeasureID name=UnitConversion.FromUnitOfMeasureID>
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class=form-group>
+                                    <label>
+                                        <small>To (Unit Of Measure)</small>
+                                    </label>
+                                    <select class="form-control input-sm" required data-val=true data-val-required="The ToUnitOfMeasureID field is required." id=UnitConversion_ToUnitOfMeasureID name=UnitConversion.ToUnitOfMeasureID>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class=col-sm-6>
+                                <div class=form-group>
+                                    <label>
+                                        <small>Quantity</small>
+                                    </label>
+                                    <input type=number class="form-control input-sm" required data-val=true data-val-number="The field Quantity must be a number." data-val-required="The Quantity field is required." id=UnitConversion_Quantity name=UnitConversion.Quantity>
+                                </div>
+                                <div id=updateunitconversion hidden>
+                                    <div class="btn-group btn-group-xs pull-right">
+                                        <button id=btnupdateunitconversion class="btn btn-primary ladda-button" data-style=expand-right data-size=s>Update</button>
+                                        <a id=btnCreateNewUnitConversion class="btn btn-primary btn-xs">New</a>
+                                    </div>
+                                </div>
+                                <div id=addunitconversion>
+                                    <button id=btnaddunitconversion class="btn btn-primary btn-xs pull-right ladda-button" data-style=expand-right data-size=s>
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWBqFmIUXTlFkFkLJy0F2ol7NfOI8J4AWR-oe0Rb__3mlfy3TKlGQejXVFZ50Vz9ndbhrCrAZzWl6DnAnGh4FIGULhgcUyk4elsDwDdCkrijAwTLKErjFQNN-0MkRixTt9Q-VvCFwBUnFrFnopE8jxz8pFwtporfCoakn6B1E6xFw>
+                    </form>
+                </div>
+                <div class=panel-heading>
+                    <h6 class=panel-title>View: Unit Conversions</h6>
+                </div>
+                <div class=table-responsive id=no-more-tables>
+                    <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=unitconversionstable>
+                        <thead class=cf>
+                            <tr>
+                                <th>
+                                    <strong>UnitConversionID</strong>
+                                <th>
+                                    <strong>From</strong>
+                                <th>
+                                    <strong>To</strong>
+                                <th>
+                                    <strong>Quantity</strong>
+                                    <tbody>
+                    </table>
+                    <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%; max-height: 30vh; height: 40vh;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="chatbox chatbox--tray chatbox--empty">
+    <div class=chatbox__title>
+        <h5>
+            <a href=# id=nameChat>Chat</a>
+        </h5>
+        <button class=chatbox__title__tray>
+            <span></span>
+        </button>
+    </div>
+    <div class=chatbox__body></div>
+    <div class=chatbox__credentials>
+        <div class=list-group id=connectedUsers></div>
+    </div>
+    <div class="input-group chatbox__message">
+        <input id=btn-input class="form-control input-sm" placeholder="Write your message here...">
+        <span class=input-group-btn>
+            <button class="btn btn-primary btn-sm" id=btn-chat>
+                <i class="glyphicon glyphicon-send"></i>
+            </button>
+        </span>
+    </div>
+</div>       
+        

@@ -6,19 +6,19 @@ namespace Pharmacy_Information_Management_System.Controllers
     public class InventoryController : Controller
     {
         // GET: InventoryController
-        public ActionResult Index()
+        public ActionResult Inventory()
         {
             return View();
         }
 
         // GET: InventoryController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult StockTake(int id)
         {
             return View();
         }
 
         // GET: InventoryController/Create
-        public ActionResult Create()
+        public ActionResult UnitOfMeasure()
         {
             return View();
         }

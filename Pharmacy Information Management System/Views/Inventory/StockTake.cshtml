@@ -1,0 +1,235 @@
+﻿    <div class=row>
+        <div class="panel panel-default">
+            <div id=backUp></div>
+                <div class="panel-heading clearfix">
+                <h6 class=panel-title>
+                <strong>
+                    <span class=stolocchosen hidden></span>
+                </strong>
+                Stock Take 
+                <a href=# class="btn btn-xs btn-link" id=changeStoloc>
+                    <small>
+                        <i>(click here to change)</i>
+                    </small>
+                </a>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-info btn-xs dropdown-toggle" type=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>
+                        Actions <span class=caret></span>
+                    </button>
+                    <ul class=dropdown-menu>
+                    @*      <li>
+                            <a href=javascript:CreateNewStockTake()>Create an Empty Stock Take</a>
+                        <li>
+                            <a href=javascript:ImportExportStockTake()>Create Stock Take from Excel</a>
+                        <li>
+                            <a href=javascript:FreezeStockTake()>Freeze Stock Take</a>
+                        <li>
+                            <a href=javascript:CommitAdjustmentToStock()>Commit Adjustment to Stock</a>
+                        <li role=separator class=divider>
+                        <li>
+                            <a href=javascript:VarianceReport()>Variance Report</a>*@
+                    <div class="row text-center">
+                    <div class="btn-group-vertical btn-group-sm">
+                    <button class="btn btn-primary" onclick="prompt()">Create an Empty Stock Take</button>
+                    <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnExportProducts>Create Stock Take from Excel</button>
+                    <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnCreateopeningstock>Freeze Stock Take</button>
+                    <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnSyncInvItems>Commit Adjustment to Stock</button>
+                    <li role=separator class=divider></li>
+                    <button class="btn btn-primary ladda-button" data-style=expand-right data-size=s id=btnRetireOldBatches>Variance Report</button>
+                                                          
+                </div>
+             </div>
+            </div>
+        </div>
+
+        <div class=panel-body>
+            <div class=row>
+                <div class="col-sm-5 content-left">
+                    <div class=row>
+                        <div class=col-md-12>
+                            <button class="btn btn-primary btn-xs ladda-button" id="btnCreateNewStockTake" data-style=expand-right data-size=s>New Stock Take</button>
+                        </div>
+                    </div>
+                    <h5>
+                        <u>
+                            <strong>View: Stock Takes</strong>
+                        </u>
+                    </h5>
+                    <div class=row>
+                        <div class=col-md-12>
+                            <div class=table-responsive id=no-more-tables>
+                                <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=stocktakestable>
+                                    <thead class=cf>
+                                        <tr>
+                                            <th>
+                                                <strong>No</strong>
+                                            <th>
+                                                <strong>Created On</strong>
+                                            <th>
+                                                <strong>Created By</strong>
+                                                <tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-sm-7>
+                    <div class=row>
+                        <div class=col-md-6>
+                            <table class="table-condensed table-borderless table-responsive compact">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Stock Take No: </strong>
+                                        <td>
+                                            <span id=txtStockTakeNo></span>
+                                            <tr>
+                                                <td>
+                                                    <strong>Created By: </strong>
+                                                <td>
+                                                    <span id=txtStockCreatedBy></span>
+                            </table>
+                        </div>
+                        <div class=col-md-6>
+                            <table class="table-condensed table-borderless table-responsive compact">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Created On: </strong>
+                                        <td>
+                                            <span id=txtStockCreatedOn></span>
+                                            <tr>
+                                                <td>
+                                                    <strong>Status: </strong>
+                                                <td>
+                                                    <span id=txtStockStatus></span>
+                            </table>
+                        </div>
+                    </div>
+                    <form method=post id=UpdateStockItemForm>
+                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVJS-B4pWI6irWHu6CkRKSFJD-uqbD1ub6K-vOive-Mqk1jlAxOsxKvr3qQbf8gjvjzQGyJzZqU098lB5YwVwbMqEwFbM6zHdBC3DdivQNVOoQwkqQFg43KaFm1z32XH4KQtj9WYHEwWv-lffiCxi7o3JdZunM8p52saD4QKPobVg>
+                    </form>
+                    <h5>
+                        <u>
+                            <strong>View: Stock Take Items</strong>
+                        </u>
+                    </h5>
+                    <div class=row>
+                        <div class=col-md-12>
+                            <div class=table-responsive id=no-more-tables>
+                                <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=stocktakeitemstable>
+                                    <thead class=cf>
+                                        <tr>
+                                            <th>
+                                            <th>
+                                                <strong>Name</strong>
+                                            <th>
+                                                <strong>Batch</strong>
+                                            <th>
+                                                <strong>Units</strong>
+                                            <th>
+                                                <strong>Sys Qty</strong>
+                                            <th>
+                                                <strong>New Qty</strong>
+                                                <tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=panel-footer>
+                <div class=row>
+                    <div class=col-md-8>
+                        <form class=form-inline method=post id=FilterStockTakesForm>
+                            <div class=form-group>
+                                <label for=filterString>
+                                    <small>View: </small>
+                                </label>
+                                <select class="form-control input-sm" id=filterString>
+                                    <option value=1>Pending</option>
+                                    <option value=2>Committed</option>
+                                </select>
+                            </div>
+                            <div class=form-group>
+                                <label for=DateTimeFrom>
+                                    <small>Btwn: </small>
+                                </label>
+                                <input type=date class="form-control input-sm" id=DateTimeFrom>
+                            </div>
+                            <div class=form-group>
+                                <label for=DateTimeTo>
+                                    <small>And: </small>
+                                </label>
+                                <input type=date class="form-control input-sm" id=DateTimeTo>
+                            </div>
+                            <button class="btn btn-info btn-xs ladda-button" data-style=expand-right data-size=s>View</button>
+                            <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVJS-B4pWI6irWHu6CkRKSFJD-uqbD1ub6K-vOive-Mqk1jlAxOsxKvr3qQbf8gjvjzQGyJzZqU098lB5YwVwbMqEwFbM6zHdBC3DdivQNVOoQwkqQFg43KaFm1z32XH4KQtj9WYHEwWv-lffiCxi7o3JdZunM8p52saD4QKPobVg>
+                        </form>
+                    </div>
+                    <div class=col-md-4>
+                        <form class="form-inline pull-right" method=post id=SearchProductForm>
+                            <div class=form-group>
+                                <div class=input-group>
+                                    <span class=input-group-addon id=search>
+                                        <span class="fa fa-search"></span>
+                                    </span>
+                                    <input class="form-control input-sm isbn" id=searchIndex aria-describedby=search placeholder="Search product here..." required>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-default btn-sm button scan" id="btnScan">
+                                @* <span class="glyphicon glyphicon-barcode"></span>*@
+                                <i class="fa-sharp fa-solid fa-barcode"></i>
+                            </button>
+                            <button class="btn btn-default btn-sm ladda-button" id=btnsearchitem data-style=expand-right data-size=s>Search</button>
+                            <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tVJS-B4pWI6irWHu6CkRKSFJD-uqbD1ub6K-vOive-Mqk1jlAxOsxKvr3qQbf8gjvjzQGyJzZqU098lB5YwVwbMqEwFbM6zHdBC3DdivQNVOoQwkqQFg43KaFm1z32XH4KQtj9WYHEwWv-lffiCxi7o3JdZunM8p52saD4QKPobVg>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id=scrolltohere></div>
+            <div class="panel-heading clearfix">
+                <h6 class=panel-title>
+                    <strong>
+                        <span class=stolocchosen hidden></span>
+                    </strong>
+                    View: Products
+                </h6>
+            </div>
+            <div class=table-responsive id=no-more-tables>
+                <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=inventoryitemstable>
+                    <thead class=cf>
+                        <tr>
+                            <th>
+                                <strong>Name</strong>
+                            <th>
+                                <strong>Batch</strong>
+                            <th>
+                                <strong>Cost</strong>
+                            <th>
+                                <strong>Physical Qty</strong>
+                            <th>
+                                <strong>System Qty</strong>
+                            <th>
+                                <tbody>
+                </table>
+            </div>
+        </div>
+        <div class=panel-footer>
+            <div class=row>
+                <div class=col-md-12>
+                    <label class=checkbox-inline>
+                        <input type=checkbox id=LoadAll>Load All Products 
+                    </label>
+                </div>
+            </div>
+        </div>
+      
+
+@await Html.PartialAsync("./PartialViews/_ItemCategory")
+@await Html.PartialAsync("./PartialViews/_Expiredbatches")
+@await Html.PartialAsync("./PartialViews/_Barcode")
+@await Html.PartialAsync("./PartialViews/_CreateOpeningStock")
+@await Html.PartialAsync("./PartialViews/_ImportProducts")
+@await Html.PartialAsync("./PartialViews/_ItemClass")
+@await Html.PartialAsync("./PartialViews/_ReservedItems")
