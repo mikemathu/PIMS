@@ -1,4 +1,6 @@
-﻿    <div class=row>
+﻿@model Pharmacy_Information_Management_System.Models.InventoryItemVM
+
+<div class=row>
         <div class="panel panel-default">
             <div id=backUp></div>
                 <div class="panel-heading clearfix">
@@ -36,7 +38,7 @@
                 </div>
                 <hr>
                 <div class="row marginRow">
-                    <form method=post id=InventoryItemForm>
+                <form asp-action="Inventory" method=post id=InventoryItemForm>
                         <input hidden type=number data-val=true data-val-required="The ItemID field is required." id=Item_ItemID name=Item.ItemID>
                         <input hidden type=number data-val=true data-val-required="The ItemStorageLocationID field is required." id=ItemStorageLocation_ItemStorageLocationID name=ItemStorageLocation.ItemStorageLocationID>
                         <input hidden type=number data-val=true data-val-required="The CompanyBranchItemID field is required." id=ItemStorageLocation_CompanyBranchItemID name=ItemStorageLocation.CompanyBranchItemID>
@@ -46,141 +48,146 @@
                         <input type=number step=any hidden data-val=true data-val-number="The field PreviousQuantity must be a number." data-val-required="The PreviousQuantity field is required." id=PreviousQuantity name=PreviousQuantity>
                         <input type=number step=any hidden data-val=true data-val-number="The field PreviousUnitPrice must be a number." data-val-required="The PreviousUnitPrice field is required." id=PreviousUnitPrice name=PreviousUnitPrice>
                         <div class=col-sm-4>
-                            <div class=form-group>
-                                <label>
-                                    <small>Name</small>
-                                </label>
-                                <input class="form-control input-sm" required data-val=true data-val-required="The Name field is required." id=Item_Name name=Item.Name>
+                            <div class=form-group>                            
+                                <label asp-for="ItemName" class="control-label"></label>
+                                <input asp-for="ItemName" class="form-control input-sm" required data-val=true data-val-required="The Name field is required." id=Item_Name name=Item.Name />
+                                <span asp-validation-for="ItemName" class="text-danger"></span>
+                            </div>
+                            <div class=form-group>                       
+                                <label asp-for="ItemCategory" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option></option>
+                                    <option>Drugs</option>
+                                    <option>Stationaries</option>
+                                    <option>Other Products</option>
+                                </select>
+                                <span asp-validation-for="ItemCategory" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Item Category</small>
-                                </label>
-                                <select class="form-control input-sm" required data-val=true data-val-required="The ItemCategoryID field is required." id=Item_ItemCategoryID name=Item.ItemCategoryID>
+                                <label asp-for="ItemClass" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
+                                    <option>Product</option>
+                                    <option>Service</option>
                                 </select>
+                                <span asp-validation-for="ItemClass" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Item Class</small>
-                                </label>
-                                <select class="form-control input-sm" required data-val=true data-val-required="The ItemClassID field is required." id=Item_ItemClassID name=Item.ItemClassID>
+                                <label asp-for="InventorySubAccount" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
+                                    <option>Inventory- Pharmacy Drugs</option>
+                                    <option>Inventory- Other Items</option>
                                 </select>
+                                <span asp-validation-for="InventorySubAccount" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Inventory Sub-Account</small>
-                                </label>
-                                <select class="form-control input-sm" required data-val=true data-val-required="The AssetSubAccountID field is required." id=CompanyBranchItem_AssetSubAccountID name=CompanyBranchItem.AssetSubAccountID>
+                                <label asp-for="CostOfSaleSubAccount" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
+                                    <option>Cost Of Goods Sold- Pharmacy Drugs</option>
+                                    <option>Cost Of Goods Sold- Other Products</option>
                                 </select>
+                                <span asp-validation-for="CostOfSaleSubAccount" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Cost Of Sale Sub-Account</small>
-                                </label>
-                                <select class="form-control input-sm" required data-val=true data-val-required="The CostOfSaleSubAccountID field is required." id=CompanyBranchItem_CostOfSaleSubAccountID name=CompanyBranchItem.CostOfSaleSubAccountID>
+                                <label asp-for="IncomeSubAccount" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
+                                    <option>Sales- Pharmacy Drugs</option>
+                                    <option>Sales- Other Products</option>
                                 </select>
-                            </div>
-                            <div class=form-group>
-                                <label>
-                                    <small>Income Sub-Account</small>
-                                </label>
-                                <select class="form-control input-sm" required data-val=true data-val-required="The RevenueSubAccountID field is required." id=CompanyBranchItem_RevenueSubAccountID name=CompanyBranchItem.RevenueSubAccountID>
-                                    <option></option>
-                                </select>
+                                <span asp-validation-for="IncomeSubAccount" class="text-danger"></span>
                             </div>
                         </div>
                         <div class=col-sm-3>
                             <div class=form-group>
-                                <label>
-                                    <small>VAT Type</small>
-                                </label>
-                                <select class="form-control input-sm" required data-val=true data-val-required="The VATTypeID field is required." id=CompanyBranchItem_VATTypeID name=CompanyBranchItem.VATTypeID>
+                                <label asp-for="VatType" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
+                                    <option>VAT Exempt</option>
+                                    <option>Reduced VAT Rate</option>
+                                    <option>Standard VAT Rate</option>
+                                    <option>Zero Rated</option>
                                 </select>
+                                <span asp-validation-for="VatType" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Other Tax</small>
-                                </label>
-                                <select class="form-control input-sm" data-val=true data-val-required="The OtherTaxID field is required." id=CompanyBranchItem_OtherTaxID name=CompanyBranchItem.OtherTaxID>
+                                <label asp-for="OtherTax" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
+                                    <option>None</option>
+                                    <option>Other Tax</option>
                                 </select>
+                                <span asp-validation-for="OtherTax" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Unit Cost (BP)</small>
-                                </label>
-                                <input type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitCost must be a number." data-val-required="The UnitCost field is required." id=ItemStorageLocation_UnitCost name=ItemStorageLocation.UnitCost>
+                                <label asp-for="UnitCost" class="control-label"></label>
+                                <input asp-for="UnitCost" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitCost must be a number." data-val-required="The UnitCost field is required." id=ItemStorageLocation_UnitCost name=ItemStorageLocation.UnitCost>
+                                <span asp-validation-for="UnitCost" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Unit Price (For cash payers)</small>
-                                </label>
-                                <input type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitPrice must be a number." data-val-required="The UnitPrice field is required." id=UnitPrice name=UnitPrice>
+                                <label asp-for="UnitPrice" class="control-label"></label>
+                                <input asp-for="UnitPrice" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitPrice must be a number." data-val-required="The UnitPrice field is required." id=UnitPrice name=UnitPrice>
+                                <span asp-validation-for="UnitPrice" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Available Quantity</small>
-                                </label>
-                                <input type=number step=any class="form-control input-sm" required readonly data-val=true data-val-number="The field AvailableQuantity must be a number." data-val-required="The AvailableQuantity field is required." id=ItemStorageLocation_AvailableQuantity name=ItemStorageLocation.AvailableQuantity>
+                                <label asp-for="AvailableQuantity" class="control-label"></label>
+                                <input asp-for="AvailableQuantity" type=number step=any class="form-control input-sm" required readonly data-val=true data-val-number="The field AvailableQuantity must be a number." data-val-required="The AvailableQuantity field is required." id=ItemStorageLocation_AvailableQuantity name=ItemStorageLocation.AvailableQuantity disabled>
+                                <span asp-validation-for="AvailableQuantity" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Total Quantity</small>
-                                </label>
-                                <input type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field TotalQuantity must be a number." data-val-required="The TotalQuantity field is required." id=ItemStorageLocation_TotalQuantity name=ItemStorageLocation.TotalQuantity>
+                               <label asp-for="TotalQuantity" class="control-label"></label>
+                               <input asp-for="TotalQuantity" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field TotalQuantity must be a number." data-val-required="The TotalQuantity field is required." id=ItemStorageLocation_TotalQuantity name=ItemStorageLocation.TotalQuantity>                   
+                               <span asp-validation-for="TotalQuantity" class="text-danger"></span>
                             </div>
                         </div>
                         <div class=col-sm-3>
                             <div class=form-group>
-                                <label>
-                                    <small>Unit Of Measure</small>
-                                </label>
-                                <select class="form-control input-sm" required data-val=true data-val-required="The UnitOfMeasureID field is required." id=Item_UnitOfMeasureID name=Item.UnitOfMeasureID>
+                                <label asp-for="UnitOfMeasure" class="control-label"></label>
+                                <select class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
+                                    <option>Tablet</option>
+                                    <option>Dozen</option>
+                                    <option>Pack-1000</option>
+                                    <option>6-Pack</option>
+                                    <option>100-Pack</option>
+                                    <option>Capsule</option>
                                 </select>
+                                <span asp-validation-for="UnitOfMeasure" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Batch No</small>
-                                </label>
-                                <input class="form-control input-sm" required id=ItemStorageLocation_Batch name=ItemStorageLocation.Batch>
+                                <label asp-for="BatchNo" class="control-label"></label>
+                                <input asp-for="BatchNo" class="form-control input-sm" required id=ItemStorageLocation_Batch name=ItemStorageLocation.Batch>
+                                <span asp-validation-for="BatchNo" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Batch Expiry Date</small>
-                                </label>
-                                <input type=date class="form-control input-sm" required data-val=true data-val-required="The ExpiryDate field is required." id=ItemStorageLocation_ExpiryDate name=ItemStorageLocation.ExpiryDate>
+                                 <label asp-for="ExpiryDate" class="control-label"></label>
+                                 <input asp-for="ExpiryDate" type=date class="form-control input-sm" required data-val=true data-val-required="The ExpiryDate field is required." id=ItemStorageLocation_ExpiryDate name=ItemStorageLocation.ExpiryDate>                               
+                                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Item Code</small>
-                                </label>
-                                <input class="form-control input-sm" id=CompanyBranchItem_ItemCode name=CompanyBranchItem.ItemCode>
+                                <label asp-for="ItemCode" class="control-label"></label>
+                                <input asp-for="ItemCode" class="form-control input-sm" id=CompanyBranchItem_ItemCode name=CompanyBranchItem.ItemCode>                            
+                                <span asp-validation-for="ItemCode" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Barcode</small>
-                                </label>
-                                <input class="form-control input-sm" id=CompanyBranchItem_Barcode name=CompanyBranchItem.Barcode>
+                                 <label asp-for="Barcode" class="control-label"></label>
+                                 <input asp-for="Barcode" class="form-control input-sm" id=CompanyBranchItem_Barcode name=CompanyBranchItem.Barcode>
+                                 <span asp-validation-for="Barcode" class="text-danger"></span>
                             </div>
                             <div class=form-group>
-                                <label>
-                                    <small>Reorder Level</small>
-                                </label>
-                                <input class="form-control input-sm" data-val=true data-val-number="The field ReorderLevel must be a number." data-val-required="The ReorderLevel field is required." id=ItemStorageLocation_ReorderLevel name=ItemStorageLocation.ReorderLevel>
+                                 <label asp-for="ReorderLevel" class="control-label"></label>
+                                 <input asp-for="ReorderLevel" class="form-control input-sm" data-val=true data-val-number="The field ReorderLevel must be a number." data-val-required="The ReorderLevel field is required." id=ItemStorageLocation_ReorderLevel name=ItemStorageLocation.ReorderLevel>
+                                 <span asp-validation-for="ReorderLevel" class="text-danger"></span>
                             </div>
-                            <div class=form-group>
+                        @*    <div class=form-group>
                                 <div class=checkbox>
                                     <label class=checkbox>
                                         <input type=checkbox id=IsNewBatch>Create a new batch 
                                     </label>
                                 </div>
-                            </div>
+                            </div>*@
                             <div id=updateproduct hidden>
                                 <div class="btn-group pull-right">
                                     <button id=btnupdateproduct class="btn btn-primary btn-xs ladda-button" data-style=expand-right data-size=s>Update</button>

@@ -1,7 +1,14 @@
+using Pharmacy_Information_Management_System.Repositories;
+using Pharmacy_Information_Management_System.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//
+builder.Services.AddSingleton<IInventoryItemRepository, InventoryItemRepository>();
+
 
 var app = builder.Build();
 
