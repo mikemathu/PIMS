@@ -55,5 +55,42 @@ namespace Pharmacy_Information_Management_System.Repositories
             }
             _connection.Close();
         }
+
+       /* public Task<IEnumerable<InventoryItemVM>> GetInventoryItems()
+        {
+            throw new NotImplementedException();
+        }*/
+
+        public async Task<IEnumerable<InventoryItemVM>> GetInventoryItems()
+        {
+            OpenConnection();
+            List<InventoryItemVM> InventoryItems = new List<InventoryItemVM>();
+
+            string commandText = $"SELECT itemname, batchno, unitcost, quantity,  expirydate " +
+                                 $"FROM {_itemsTable} ORDER BY itemid ASC";
+            using (NpgsqlCommand command = new NpgsqlCommand(commandText, _connection))
+            {
+                using (NpgsqlDataReader reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        InventoryItems.Add(new InventoryItemVM
+                        {
+                            ItemName = (string)reader["itemname"],
+                            BatchNo = (string)reader["batchno"],
+                            UnitCost = (int)reader["unitcost"],
+                            TotalQuantity = (int)reader["quantity"],
+                      /*      AvailableQuantity = (int)reader["availablequantity"],*/
+                            ExpiryDate = (DateTime)reader["expirydate"]
+                        });
+                    }
+                    reader.Close();
+                }
+                _connection.Close();
+            }
+            if (InventoryItems.Count() == 0)
+                return null;
+            return InventoryItems;
+        }
     }
 }

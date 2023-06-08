@@ -4,7 +4,7 @@ namespace Pharmacy_Information_Management_System.Models
 {
     public class InventoryItemVM
     {
-        public int ItemID { get; set; }
+        public int ItemId { get; set; }
 
         [Display(Name = "Name")]
         [Required]
@@ -74,4 +74,11 @@ namespace Pharmacy_Information_Management_System.Models
         public int ReorderLevel { get; set; }
        /* public string Status { get; set; }*/
     }
-}
+
+    public class InventoryItemVMList
+    {
+        public IEnumerable<InventoryItemVM> InventoryItemList { get; set; }
+        public InventoryItemVM InventoryItem { get; set; }
+    }
+
+    }

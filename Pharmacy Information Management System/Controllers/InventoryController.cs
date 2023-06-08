@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Pharmacy_Information_Management_System.Models;
 using Pharmacy_Information_Management_System.Services;
 
@@ -15,9 +16,21 @@ namespace Pharmacy_Information_Management_System.Controllers
 
         // GET: InventoryController
         [HttpGet]
-        public ActionResult Inventory()
+        /*public ActionResult Inventory()
         {
             return View();
+        }*/
+        public async Task<IActionResult> Inventory()
+        {
+            var items = await _inventoryItemRepository.GetInventoryItems();
+
+            InventoryItemVMList inventoryItems = new InventoryItemVMList()
+            {
+                InventoryItemList = items,
+            };
+            return View(inventoryItems);
+
+            /*return NotFound();*/
         }
 
         [HttpPost]
@@ -26,7 +39,7 @@ namespace Pharmacy_Information_Management_System.Controllers
         {
             await _inventoryItemRepository.AddInventotyItem(inventoryItemId);
             return RedirectToAction(nameof(Inventory));
-        }
+        }      
 
         // GET: InventoryController/Details/5
         public ActionResult StockTake(int id)

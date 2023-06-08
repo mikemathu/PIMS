@@ -1,4 +1,4 @@
-﻿@model Pharmacy_Information_Management_System.Models.InventoryItemVM
+﻿@model Pharmacy_Information_Management_System.Models.InventoryItemVMList
 
 <div class=row>
         <div class="panel panel-default">
@@ -39,7 +39,7 @@
                 <hr>
                 <div class="row marginRow">
                 @*<form asp-action="Inventory" method=post id=InventoryItemForm>*@
-                <form asp-action="Inventory">
+                <form asp-action="Inventory" >
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         @*<input hidden type=number data-val=true data-val-required="The ItemID field is required." id=Item_ItemID name=Item.ItemID>
                         <input hidden type=number data-val=true data-val-required="The ItemStorageLocationID field is required." id=ItemStorageLocation_ItemStorageLocationID name=ItemStorageLocation.ItemStorageLocationID>
@@ -51,104 +51,104 @@
                         <input type=number step=any hidden data-val=true data-val-number="The field PreviousUnitPrice must be a number." data-val-required="The PreviousUnitPrice field is required." id=PreviousUnitPrice name=PreviousUnitPrice>*@
                         <div class="col-sm-4">
                             <div class="form-group">                            
-                                <label asp-for="ItemName" class="control-label"></label>
-                                <input asp-for="ItemName" class="form-control input-sm" required data-val=true data-val-required="The Name field is required." id=Item_Name />                              
-                                <span asp-validation-for="ItemName" class="text-danger"></span>
+                                <label asp-for="InventoryItem.ItemName" class="control-label"></label>
+                                <input asp-for="InventoryItem.ItemName" class="form-control input-sm" required data-val=true data-val-required="The Name field is required." id=Item_Name />                              
+                                <span asp-validation-for="InventoryItem.ItemName" class="text-danger"></span>
                             </div>
                             <div class="form-group">                       
-                                <label asp-for="ItemCategory" class="control-label"></label>
-                                <select asp-for="ItemCategory" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.ItemCategory" class="control-label"></label>
+                                <select asp-for="InventoryItem.ItemCategory" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="Drugs">Drugs</option>
                                     <option value="Stationaries">Stationaries</option>
                                     <option value="Other Products">Other Products</option>
                                 </select>
-                                <span asp-validation-for="ItemCategory" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.ItemCategory" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="ItemClass" class="control-label"></label>
-                                <select asp-for="ItemClass" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.ItemClass" class="control-label"></label>
+                                <select asp-for="InventoryItem.ItemClass" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="Product">Product</option>
                                     <option value="Service">Service</option>
                                 </select>
-                                <span asp-validation-for="ItemClass" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.ItemClass" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="InventorySubAccount" class="control-label"></label>
-                                <select asp-for="InventorySubAccount" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.InventorySubAccount" class="control-label"></label>
+                                <select asp-for="InventoryItem.InventorySubAccount" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="Inventory- Pharmacy Drugs">Inventory- Pharmacy Drugs</option>
                                     <option value="Inventory- Lab Material">Inventory- Lab Material</option>
                                     <option value="Inventory- Other Items">Inventory- Other Items</option>
                                 </select>
-                                <span asp-validation-for="InventorySubAccount" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.InventorySubAccount" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="CostOfSaleSubAccount" class="control-label"></label>
-                                <select asp-for="CostOfSaleSubAccount" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.CostOfSaleSubAccount" class="control-label"></label>
+                                <select asp-for="InventoryItem.CostOfSaleSubAccount" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="Cost Of Goods Sold- Pharmacy Drugs">Cost Of Goods Sold- Pharmacy Drugs</option>
                                     <option value="Cost Of Goods Sold- Other Products">Cost Of Goods Sold- Other Products</option>
                                 </select>
-                                <span asp-validation-for="CostOfSaleSubAccount" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.CostOfSaleSubAccount" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="IncomeSubAccount" class="control-label"></label>
-                                <select asp-for="IncomeSubAccount" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.IncomeSubAccount" class="control-label"></label>
+                                <select asp-for="InventoryItem.IncomeSubAccount" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="Sales- Pharmacy Drugs">Sales- Pharmacy Drugs</option>
                                     <option value="Sales- Other Products">Sales- Other Products</option>
                                 </select>
-                                <span asp-validation-for="IncomeSubAccount" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.IncomeSubAccount" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label asp-for="VatType" class="control-label"></label>
-                                <select asp-for="VatType" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.VatType" class="control-label"></label>
+                                <select asp-for="InventoryItem.VatType" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="VAT Exempt">VAT Exempt</option>
                                     <option value="Reduced VAT Rate">Reduced VAT Rate</option>
                                     <option value="Standard VAT Rate">Standard VAT Rate</option>
                                     <option value="Zero Rate">Zero Rated</option>
                                 </select>
-                                <span asp-validation-for="VatType" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.VatType" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="OtherTax" class="control-label"></label>
-                                <select asp-for="OtherTax" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.OtherTax" class="control-label"></label>
+                                <select asp-for="InventoryItem.OtherTax" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="None">None</option>
                                     <option value="Other Tax">Other Tax</option>
                                 </select>
-                                <span asp-validation-for="OtherTax" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.OtherTax" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="UnitCost" class="control-label"></label>
-                                <input asp-for="UnitCost" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitCost must be a number." data-val-required="The UnitCost field is required." id=ItemStorageLocation_UnitCost>
-                                <span asp-validation-for="UnitCost" class="text-danger"></span>
+                                <label asp-for="InventoryItem.UnitCost" class="control-label"></label>
+                                <input asp-for="InventoryItem.UnitCost" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitCost must be a number." data-val-required="The UnitCost field is required." id=ItemStorageLocation_UnitCost>
+                                <span asp-validation-for="InventoryItem.UnitCost" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="UnitPrice" class="control-label"></label>
-                                <input asp-for="UnitPrice" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitPrice must be a number." data-val-required="The UnitPrice field is required." id=UnitPrice >
-                                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                                <label asp-for="InventoryItem.UnitPrice" class="control-label"></label>
+                                <input asp-for="InventoryItem.UnitPrice" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field UnitPrice must be a number." data-val-required="The UnitPrice field is required." id=UnitPrice >
+                                <span asp-validation-for="InventoryItem.UnitPrice" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="AvailableQuantity" class="control-label"></label>
-                                <input asp-for="AvailableQuantity" type=number step=any class="form-control input-sm" required readonly data-val=true data-val-number="The field AvailableQuantity must be a number." data-val-required="The AvailableQuantity field is required." id=ItemStorageLocation_AvailableQuantity disabled>
-                                <span asp-validation-for="AvailableQuantity" class="text-danger"></span>
+                                <label asp-for="InventoryItem.AvailableQuantity" class="control-label"></label>
+                                <input asp-for="InventoryItem.AvailableQuantity" type=number step=any class="form-control input-sm" required readonly data-val=true data-val-number="The field AvailableQuantity must be a number." data-val-required="The AvailableQuantity field is required." id=ItemStorageLocation_AvailableQuantity disabled>
+                                <span asp-validation-for="InventoryItem.AvailableQuantity" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                               <label asp-for="TotalQuantity" class="control-label"></label>
-                               <input asp-for="TotalQuantity" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field TotalQuantity must be a number." data-val-required="The TotalQuantity field is required." id=ItemStorageLocation_TotalQuantity >                   
-                               <span asp-validation-for="TotalQuantity" class="text-danger"></span>
+                               <label asp-for="InventoryItem.TotalQuantity" class="control-label"></label>
+                               <input asp-for="InventoryItem.TotalQuantity" type=number step=any class="form-control input-sm" required data-val=true data-val-number="The field TotalQuantity must be a number." data-val-required="The TotalQuantity field is required." id=ItemStorageLocation_TotalQuantity >                   
+                               <span asp-validation-for="InventoryItem.TotalQuantity" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label asp-for="UnitOfMeasure" class="control-label"></label>
-                            <select asp-for="UnitOfMeasure" class="form-control" id="exampleFormControlSelect1">
+                                <label asp-for="InventoryItem.UnitOfMeasure" class="control-label"></label>
+                            <select asp-for="InventoryItem.UnitOfMeasure" class="form-control" id="exampleFormControlSelect1">
                                     <option></option>
                                     <option value="Tablet">Tablet</option>
                                     <option value="Dozen">Dozen</option>
@@ -157,32 +157,32 @@
                                     <option value="100-Pack">100-Pack</option>
                                     <option value="Capsule">Capsule</option>
                                 </select>
-                                <span asp-validation-for="UnitOfMeasure" class="text-danger"></span>
+                                <span asp-validation-for="InventoryItem.UnitOfMeasure" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="BatchNo" class="control-label"></label>
-                                <input asp-for="BatchNo" class="form-control input-sm" required id=ItemStorageLocation_Batch>
-                                <span asp-validation-for="BatchNo" class="text-danger"></span>
+                                <label asp-for="InventoryItem.BatchNo" class="control-label"></label>
+                                <input asp-for="InventoryItem.BatchNo" class="form-control input-sm" required id=ItemStorageLocation_Batch>
+                                <span asp-validation-for="InventoryItem.BatchNo" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                 <label asp-for="ExpiryDate" class="control-label"></label>
-                                 <input asp-for="ExpiryDate" type=date class="form-control input-sm" required data-val=true data-val-required="The ExpiryDate field is required." id=ItemStorageLocation_ExpiryDate>                               
-                                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                                 <label asp-for="InventoryItem.ExpiryDate" class="control-label"></label>
+                                 <input asp-for="InventoryItem.ExpiryDate" type=date class="form-control input-sm" required data-val=true data-val-required="The ExpiryDate field is required." id=ItemStorageLocation_ExpiryDate>                               
+                                 <span asp-validation-for="InventoryItem.ExpiryDate" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="ItemCode" class="control-label"></label>
-                                <input asp-for="ItemCode" class="form-control input-sm" id=CompanyBranchItem_ItemCode >     
-                                <span asp-validation-for="ItemCode" class="text-danger"></span>
+                                <label asp-for="InventoryItem.ItemCode" class="control-label"></label>
+                                <input asp-for="InventoryItem.ItemCode" class="form-control input-sm" id=CompanyBranchItem_ItemCode >     
+                                <span asp-validation-for="InventoryItem.ItemCode" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                 <label asp-for="Barcode" class="control-label"></label>
-                                 <input asp-for="Barcode" class="form-control input-sm" id=CompanyBranchItem_Barcode>
-                                 <span asp-validation-for="Barcode" class="text-danger"></span>
+                                 <label asp-for="InventoryItem.Barcode" class="control-label"></label>
+                                 <input asp-for="InventoryItem.Barcode" class="form-control input-sm" id=CompanyBranchItem_Barcode>
+                                 <span asp-validation-for="InventoryItem.Barcode" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                 <label asp-for="ReorderLevel" class="control-label"></label>
-                                 <input asp-for="ReorderLevel" class="form-control input-sm" data-val=true data-val-number="The field ReorderLevel must be a number." data-val-required="The ReorderLevel field is required." id=ItemStorageLocation_ReorderLevel>
-                                 <span asp-validation-for="ReorderLevel" class="text-danger"></span>
+                                 <label asp-for="InventoryItem.ReorderLevel" class="control-label"></label>
+                                 <input asp-for="InventoryItem.ReorderLevel" class="form-control input-sm" data-val=true data-val-number="The field ReorderLevel must be a number." data-val-required="The ReorderLevel field is required." id=ItemStorageLocation_ReorderLevel>
+                                 <span asp-validation-for="InventoryItem.ReorderLevel" class="text-danger"></span>
                             </div>
                          @*   <div class="form-group">
                                 <div class=checkbox>
@@ -241,25 +241,48 @@
                         View: Inventory Items
                     </h5>
                 </div>
-                <div class=table-responsive id=no-more-tables>
-                    <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=inventoryitemstable>
+            <div class=table-responsive id=no-more-tables>
+                   @* <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=inventoryitemstable>*@
+                    <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100%  >
                         <thead class=cf>
                             <tr>
                                 <th>
                                     <strong>Name</strong>
+                                    </th>
                                 <th>
                                     <strong>Batch No</strong>
+                                    </th>
                                 <th>
                                     <strong>Unit Cost</strong>
+                                      </th>
                                 <th>
                                     <strong>Unit Price</strong>
-                                <th>
+                                      </th>
+                               @* <th>
                                     <strong>Total Quantity</strong>
+                                      </th>*@
                                 <th>
                                     <strong>Available Quantity</strong>
+                                      </th>
                                 <th>
                                     <strong>Expires On</strong>
-                                    <tbody>
+                            </th>
+                            </tr>
+                            </thead>
+                                    @*<tbody>*@
+                        @foreach (var d in Model.InventoryItemList)
+                        {
+                            <tr>
+                                <td>@d.ItemName</td>
+                                <td>@d.BatchNo</td>
+                                <td>@d.UnitCost</td>
+                                <td>@d.UnitPrice</td>
+                                <td>@d.AvailableQuantity</td>
+                                <td>@d.ExpiryDate</td>
+
+                            </tr>
+                        }
+                                        </tbody>
                     </table>
                 </div>
             </div>
@@ -281,7 +304,7 @@
                                 </select>
                             </div>
                             <button id=btnfilterproducts class="btn btn-info btn-xs ladda-button" data-style=expand-right data-size=s>View</button>
-                            @*<input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>*@
+                           @* <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tWKO7792FM3IkoDRBMpDtenlbhW_pzlEU1UZryrofNUWmLhnvo9IL9B3QDCQSUME0Ano3n5oAfp0ctvMibtGsro9XI-TsupDHII3VTONnhUkl2E6M8sZuZKZc9JlRGYkjF8B46uleLP_NJGJINxn_rjZXAO0YCOmtWvFtlzFNNBJw>*@
                     </form>
                 </div>
             </div>

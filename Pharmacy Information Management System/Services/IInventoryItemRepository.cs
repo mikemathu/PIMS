@@ -5,5 +5,6 @@ namespace Pharmacy_Information_Management_System.Services
     public interface IInventoryItemRepository
     {
         Task AddInventotyItem(InventoryItemVM inventoryItemId);
+        Task<IEnumerable<InventoryItemVM>> GetInventoryItems();
     }
 }
